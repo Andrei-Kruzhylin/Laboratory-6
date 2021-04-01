@@ -112,4 +112,9 @@ public class BouncingBall implements Runnable {
         canvas.draw(ball);
         canvas.fill(ball);
     }
+
+    //Метод возвращения цвета мяча
+    public Color getColor() {
+        return color;
+    }
 }
