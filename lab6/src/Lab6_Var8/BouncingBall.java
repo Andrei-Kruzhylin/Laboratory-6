@@ -102,6 +102,7 @@ public class BouncingBall implements Runnable {
 // и просто выходим (завершаемся)
         }
     }
+
     // Метод прорисовки самого себя
     public void paint(Graphics2D canvas) {
         canvas.setColor(color);
