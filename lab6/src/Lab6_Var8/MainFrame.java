@@ -42,15 +42,35 @@ public class MainFrame extends JFrame {
             public void actionPerformed(ActionEvent event) {
                 field.addBall();
                 if (!pauseMenuItem.isEnabled() &&
-                        !resumeMenuItem.isEnabled()) {
+                        !resumeMenuItem.isEnabled() &&
+                            !pauseMenuItemBlue.isEnabled()) {
     // Ни один из пунктов меню не являются
     // доступными - сделать доступным "Паузу"
                     pauseMenuItem.setEnabled(true);
+                    pauseMenuItemBlue.setEnabled(true);
                 }
             }
+
+        };
+        Action addBallAction10 = new AbstractAction("Добавить 10 мячей") {
+            public void actionPerformed(ActionEvent event) {
+                int i = 1;
+                while(i<=10){
+                    field.addBall();i++;}
+                if (!pauseMenuItem.isEnabled() &&
+                        !resumeMenuItem.isEnabled() &&
+                        !pauseMenuItemBlue.isEnabled()) {
+                    // Ни один из пунктов меню не являются
+                    // доступными - сделать доступным "Паузу"
+                    pauseMenuItem.setEnabled(true);
+                    pauseMenuItemBlue.setEnabled(true);
+                }
+            }
+
         };
         menuBar.add(ballMenu);
         ballMenu.add(addBallAction);
+        ballMenu.add(addBallAction10);
         JMenu controlMenu = new JMenu("Управление");
         menuBar.add(controlMenu);
         Action pauseAction = new AbstractAction("Приостановить движение"){
