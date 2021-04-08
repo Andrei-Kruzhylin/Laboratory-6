@@ -48,7 +48,9 @@ public class Field extends JPanel {
         //Заключается в добавлении в список нового экземпляра BouncingBall
         // Всю инициализацию положения, скорости, размера, цвета
         // BouncingBall выполняет сам в конструкторе
-        balls.add(new BouncingBall(this));
+        Thread Ball = new BouncingBall(this);
+        balls.add((BouncingBall) Ball);
+        Ball.start();
     }
     // Метод синхронизированный, т.е. только один поток может
     // одновременно быть внутри
@@ -85,6 +87,5 @@ public class Field extends JPanel {
                 wait();
             }
         }
-
     }
 }

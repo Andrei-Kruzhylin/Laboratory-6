@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
 
-public class BouncingBall implements Runnable {
+public class BouncingBall extends Thread {
     // Максимальный радиус, который может иметь мяч
     private static final int MAX_RADIUS = 40;
     // Минимальный радиус, который может иметь мяч
@@ -49,11 +49,7 @@ public class BouncingBall implements Runnable {
 // Начальное положение мяча случайно
         x = Math.random()*(field.getSize().getWidth()-2*radius) + radius;
         y = Math.random()*(field.getSize().getHeight()-2*radius) + radius;
-// Создаѐм новый экземпляр потока, передавая аргументом
-// ссылку на класс, реализующий Runnable (т.е. на себя)
-        Thread thisThread = new Thread(this);
-// Запускаем поток
-        thisThread.start();
+
     }
     // Метод run() исполняется внутри потока. Когда он завершает работу,
 // то завершается и поток
